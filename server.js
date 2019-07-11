@@ -17,7 +17,7 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html')
 })
 
-let value = 'Waiting for update...';
+let value = '';
 app.post('/', (req, res) => {
     const {query} = req
 
