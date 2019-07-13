@@ -1,3 +1,8 @@
+@font-face{
+    src: url(fonts/SignPainter_HouseCasual_Regular.ttf);
+    font-family: SignPainter HouseCasual;
+}
+
 body {
     margin: 0;
     height:100vh;
@@ -7,8 +12,9 @@ body {
 
 h3{
     margin:0;
-    font-family: 'Caveat', cursive;
-    color:white;
+    font-family: 'SignPainter HouseCasual', 'Caveat', cursive;
+    color: lightgray;
     font-size: 50vh;
-    -webkit-text-stroke: 1.25px black;
+    /*letter-spacing: 1.5px;
+    -webkit-text-stroke: 1px black;*/
 }

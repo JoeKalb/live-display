@@ -4,6 +4,7 @@ const http = require('http').createServer(app);
 const io = require('socket.io')(http);
 const path = require('path')
 const password = process.env.PASS || 'blbl'
+console.log(password)
 const port = process.env.PORT || 3000
 
 app.use(function(req, res, next) {
