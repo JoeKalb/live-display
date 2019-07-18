@@ -14,9 +14,9 @@ h3{
     margin:0;
     font-family: 'SignPainter HouseCasual', 'Caveat', cursive;
     color: lightgray;
-    font-size: 40px;
+    font-size: 100px;
     position: absolute;
-    top:0;
+    bottom:0;
     right:0;
     padding-right: 5px;
 }
