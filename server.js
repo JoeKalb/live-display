@@ -35,7 +35,8 @@ app.post('/', (req, res) => {
         console.log(query)
         info = {
             value:body.value,
-            font:body.font
+            font:body.font,
+            color:body.color
         }
         io.emit('value',info)
         res.send(info)
