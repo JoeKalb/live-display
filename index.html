@@ -17,8 +17,10 @@
         const socket = io();
         const item = document.getElementById('item')
 
-        socket.on('value', val => {
-            item.innerText = val
+        socket.on('value', info => {
+            console.log(info)
+            item.innerText = info.value
+            item.style.fontSize = `${info.font}px`
         })
     </script>
 </body>
