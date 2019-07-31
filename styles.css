@@ -1,6 +1,6 @@
 @font-face{
-    src: url(fonts/SignPainter_HouseCasual_Regular.ttf);
-    font-family: SignPainter HouseCasual;
+    src: url(fonts/Montserrat-Thin.ttf);
+    font-family: 'Monserrat'
 }
 
 body {
@@ -12,7 +12,7 @@ body {
 
 h3{
     margin:0;
-    font-family: 'SignPainter HouseCasual', 'Caveat', cursive;
+    font-family: 'Monserrat', 'Ariel', 'Caveat', cursive;
     color: lightgray;
     font-size: 100px;
     position: absolute;
