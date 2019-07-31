@@ -19,7 +19,7 @@
 
         socket.on('value', info => {
             console.log(info)
-            if(item.hasOwnProperty(value)){
+            if(info.hasOwnProperty(value)){
                 item.innerText = info.value
                 item.style.fontSize = `${info.font}px`
                 item.style.color = info.color
