@@ -24,7 +24,8 @@ app.get('/', (req, res) => {
 
 let info = {
     value:'',
-    font:50
+    font:60,
+    color:'white'
 }
 app.post('/', (req, res) => {
     const {query, body} = req
