@@ -23,7 +23,7 @@ app.get('/', (req, res) => {
 })
 
 let info = {
-    value:'testing',
+    value:'',
     font:50
 }
 app.post('/', (req, res) => {
