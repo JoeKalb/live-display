@@ -35,9 +35,9 @@ app.post('/', (req, res) => {
     if(query.password === password){
         console.log(query)
         info = {
-            value:body.value,
-            font:body.font,
-            color:body.color
+            value:body.value || '',
+            font:body.font || '60px',
+            color:body.color || 'white'
         }
         io.emit('value',info)
         res.send(info)
