@@ -12,6 +12,8 @@ body {
 
 h3{
     margin:0;
+    overflow: hidden;
+    white-space: nowrap;
     font-family: 'Monserrat', 'Ariel', 'Caveat', cursive;
     color: lightgray;
     font-size: 100px;

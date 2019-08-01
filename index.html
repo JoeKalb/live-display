@@ -16,13 +16,22 @@
     <script>
         const socket = io();
         const item = document.getElementById('item')
+        const body = document.getElementsByTagName('body')[0]
 
         socket.on('value', info => {
             console.log(info)
             item.innerText = info.value || ''
             item.style.fontSize = `${info.font || 60}px`
             item.style.color = info.color || 'white'
-            
+
+            if(item.offsetWidth > body.offsetWidth){
+                if(/word/i.test(item.innerText)){
+                    item.innerText = item.innerText.replace(/ word/i, "")
+                }
+                if(item.offsetWidth > body.offsetWidth && /banned/i.test(item.innerText)){
+                    item.innerText = item.innerText.replace(/Banned/i, 'BW')
+                }
+            }
         })
     </script>
 </body>
