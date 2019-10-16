@@ -39,8 +39,55 @@ app.post('/', (req, res) => {
             font:body.font || '60px',
             color:body.color || 'white'
         }
+        clearInterval(countdownInterval)
         io.emit('value',info)
         res.send(info)
+    }
+    else{
+        res.json({
+            'code':404,
+            'error':'Incorrect password'
+        })
+    }
+})
+
+let countdownInterval
+app.post('/countdown', (req, res) => {
+    const {query, body} = req
+
+    console.log(body)
+
+    if(query.password === password){
+        console.log(query)
+
+        const valueArr = body.value.split(':')
+        let totalTimeSeconds = (parseInt(valueArr[0]) * 60) + parseInt(valueArr[1])
+        clearInterval(countdownInterval)
+
+        countdownInterval = setInterval(() => {
+            let minutes = Math.floor(totalTimeSeconds / 60)
+            let seconds = totalTimeSeconds % 60
+            
+            let string = `${(minutes < 10)?`0${minutes}`:`${minutes}`}:${(seconds < 10)?`0${seconds}`:`${seconds}`}`
+            info = {
+                value:`Countdown: ${string}` || '',
+                font:body.font || '60px',
+                color:body.color || 'white'
+            }
+
+            --totalTimeSeconds
+            io.emit('value', info)
+
+            if(totalTimeSeconds < 0){
+                clearInterval(countdownInterval)
+                setTimeout(() => {
+                    info.value = 'ITS OVER!'
+                    io.emit('value', info)
+                }, 1000)
+            }
+        },1000)
+
+        res.json(info)
     }
     else{
         res.json({
