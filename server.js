@@ -52,6 +52,8 @@ app.post('/', (req, res) => {
 })
 
 let countdownInterval
+let continueCountdown = true
+let hasInfo = true
 app.post('/countdown', (req, res) => {
     const {query, body} = req
 
@@ -75,7 +77,16 @@ app.post('/countdown', (req, res) => {
                 color:body.color || 'white'
             }
 
-            --totalTimeSeconds
+            if(continueCountdown)
+                --totalTimeSeconds
+            else{ // add pausing timeout
+                if(hasInfo) {
+                    info.value = ``
+                    hasInfo = false
+                }
+                else hasInfo = true
+            }
+
             io.emit('value', info)
 
             if(totalTimeSeconds < 0){
@@ -88,6 +99,21 @@ app.post('/countdown', (req, res) => {
         },1000)
 
         res.json(info)
+    }
+    else{
+        res.json({
+            'code':404,
+            'error':'Incorrect password'
+        })
+    }
+})
+
+app.get('/countdown/pause', (req, res) => {
+    const { query } = req
+    if(query.password === password){
+        (continueCountdown) 
+            ? continueCountdown = false: continueCountdown = true
+        res.json({ continueCountdown })
     }
     else{
         res.json({
