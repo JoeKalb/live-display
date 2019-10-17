@@ -81,7 +81,7 @@ app.post('/countdown', (req, res) => {
                 --totalTimeSeconds
             else{ // add pausing timeout
                 if(hasInfo) {
-                    info.value = ``
+                    info.value = `Countdown: --:--`
                     hasInfo = false
                 }
                 else hasInfo = true

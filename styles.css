@@ -12,6 +12,7 @@ body {
 
 h3{
     margin:0;
+    width: 100%;
     overflow: hidden;
     white-space: nowrap;
     font-family: 'Monserrat', 'Ariel', 'Caveat', cursive;
@@ -21,4 +22,5 @@ h3{
     bottom:0;
     right:0;
     padding-right: 5px;
+    text-align: end;
 }
