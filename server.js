@@ -36,7 +36,7 @@ app.post('/', (req, res) => {
         console.log(query)
         info = {
             value:body.value || '',
-            font:body.font || '60px',
+            font:body.font || '60',
             color:body.color || 'white'
         }
         clearInterval(countdownInterval)
